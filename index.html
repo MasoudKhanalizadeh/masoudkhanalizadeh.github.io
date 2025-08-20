@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="auto">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -10,9 +10,18 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
   <style>
     :root{
-      --bg:#0b0d12; --card:#11151c; --ink:#e9edf1; --muted:#aab3bd; --accent:#79c0ff; --pill:#1a2330;
+      /* Light (default) */
+      --bg:#ffffff; --card:#f6f8fa; --ink:#1f2328; --muted:#59636e; --accent:#0969da; --pill:#eef2f6;
+      --border:#d0d7de; --btn:#edf2f7; --btn-b:#cbd5e1; --shadow:0 1px 2px rgba(0,0,0,.04);
       --max: 920px;
     }
+    @media (prefers-color-scheme: dark){
+      :root{ --bg:#0b0d12; --card:#11151c; --ink:#e9edf1; --muted:#aab3bd; --accent:#79c0ff; --pill:#1a2330; --border:#1f2733; --btn:#243144; --btn-b:#2f3f54; --shadow:0 1px 2px rgba(0,0,0,.25); }
+    }
+    /* Force themes when data-theme is set */
+    html[data-theme="light"]{ --bg:#ffffff; --card:#f6f8fa; --ink:#1f2328; --muted:#59636e; --accent:#0969da; --pill:#eef2f6; --border:#d0d7de; --btn:#edf2f7; --btn-b:#cbd5e1; --shadow:0 1px 2px rgba(0,0,0,.04); }
+    html[data-theme="dark"]{ --bg:#0b0d12; --card:#11151c; --ink:#e9edf1; --muted:#aab3bd; --accent:#79c0ff; --pill:#1a2330; --border:#1f2733; --btn:#243144; --btn-b:#2f3f54; --shadow:0 1px 2px rgba(0,0,0,.25); }
+
     *{box-sizing:border-box}
     html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif;}
     a{color:var(--accent);text-decoration:none}
@@ -24,7 +33,7 @@
     .hero{display:grid;grid-template-columns:1.2fr .8fr;gap:20px;align-items:center}
     .hero h1{font-size:40px;line-height:1.1;margin:0 0 8px}
     .muted{color:var(--muted)}
-    .card{background:var(--card);border:1px solid #1f2733;border-radius:16px;padding:18px}
+    .card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:18px;box-shadow:var(--shadow)}
     h2{margin:0 0 12px;font-size:22px}
     section{margin:26px 0}
     ul{margin:8px 0 0 18px}
@@ -32,10 +41,12 @@
     @media (min-width: 840px){.grid.cols-2{grid-template-columns:1fr 1fr}}
     .pill{display:inline-block;padding:6px 10px;border-radius:999px;background:var(--pill);margin:4px 6px 0 0}
     footer{margin-top:36px;color:var(--muted);font-size:14px}
-    .btn{display:inline-block;padding:10px 14px;border-radius:12px;background:#243144;border:1px solid #2f3f54}
+    .btn{display:inline-block;padding:10px 14px;border-radius:12px;background:var(--btn);border:1px solid var(--btn-b)}
     .pub li{margin-bottom:10px}
     .small{font-size:14px}
-    .kbd{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;background:#0d131b;border:1px solid #1e2a39;border-radius:6px;padding:2px 6px}
+    .kbd{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;background:var(--pill);border:1px solid var(--border);border-radius:6px;padding:2px 6px}
+    .controls{display:flex;gap:8px;align-items:center}
+    .toggle{cursor:pointer}
   </style>
 </head>
 <body>
@@ -45,15 +56,18 @@
         <div class="small muted">Personal Website</div>
         <div class="small">Last update: <span id="last-update"></span></div>
       </div>
-      <nav>
-        <a href="#about">About</a>
-        <a href="#interests">Research Interests</a>
-        <a href="#publications">Publications</a>
-        <a href="#experience">Experience</a>
-        <a href="#education">Education</a>
-        <a href="#skills">Skills</a>
-        <a href="#contact">Contact</a>
-      </nav>
+      <div class="controls">
+        <nav>
+          <a href="#about">About</a>
+          <a href="#interests">Research</a>
+          <a href="#publications">Publications</a>
+          <a href="#experience">Experience</a>
+          <a href="#education">Education</a>
+          <a href="#skills">Skills</a>
+          <a href="#contact">Contact</a>
+        </nav>
+        <button id="themeBtn" class="btn toggle" aria-label="Toggle color theme" title="Toggle Light/Dark">🌗</button>
+      </div>
     </header>
 
     <section class="hero card" id="about">
@@ -72,7 +86,7 @@
           <li><a href="https://www.linkedin.com/in/masoud-khanalizadeh-imani-b17ab41bb/" target="_blank" rel="noopener">LinkedIn</a></li>
           <li><a href="https://www.researchgate.net/profile/Masoud-Khanalizadeh-Imani" target="_blank" rel="noopener">ResearchGate</a></li>
           <li><a href="https://doi.org/10.1145/3582016.3582041" target="_blank" rel="noopener">ASPLOS 2023 (paper DOI)</a></li>
-          <li><a href="https://www.hpds.ir/en/" target="_blank" rel="noopener">HPDS — High‑Performance Data Storage</a></li>
+          <li><a href="https://www.hpds.ir/en/" target="_blank" rel="noopener">HPDS — High-Performance Data Storage</a></li>
           <li><a href="CV.pdf" target="_blank" rel="noopener">CV (PDF)</a></li>
         </ul>
       </div>
@@ -177,15 +191,49 @@
     </section>
 
     <footer>
-      © <span id="y"></span> Masoud Khanalizadeh Imani — Built with plain HTML/CSS. Ready for migration to Jekyll when needed.
+      © <span id="y"></span> Masoud Khanalizadeh Imani — Light/Dark theme with user preference.
     </footer>
   </div>
 
   <script>
+    // Last update + year
     const d=new Date();
     document.getElementById('y').textContent=d.getFullYear();
-    const iso=d.toISOString().slice(0,10);
-    document.getElementById('last-update').textContent=iso;
+    document.getElementById('last-update').textContent=d.toISOString().slice(0,10);
+
+    // Theme toggle with localStorage
+    const KEY='pref-theme';
+    const root=document.documentElement;
+    const btn=document.getElementById('themeBtn');
+
+    function applyTheme(val){
+      if(val==='light' || val==='dark'){
+        root.setAttribute('data-theme', val);
+      }else{
+        root.setAttribute('data-theme','auto');
+      }
+    }
+
+    function nextTheme(cur){
+      // auto -> dark -> light -> auto
+      return cur==='auto' ? 'dark' : (cur==='dark' ? 'light' : 'auto');
+    }
+
+    // init
+    const saved=localStorage.getItem(KEY);
+    applyTheme(saved || 'auto');
+
+    btn.addEventListener('click',()=>{
+      const cur=root.getAttribute('data-theme') || 'auto';
+      const nxt=nextTheme(cur);
+      applyTheme(nxt);
+      localStorage.setItem(KEY, nxt);
+      btn.textContent = (nxt==='dark' ? '🌙' : (nxt==='light' ? '☀️' : '🌗'));
+    });
+
+    // set initial icon
+    const cur=root.getAttribute('data-theme') || 'auto';
+    btn.textContent = (cur==='dark' ? '🌙' : (cur==='light' ? '☀️' : '🌗'));
   </script>
 </body>
 </html>
