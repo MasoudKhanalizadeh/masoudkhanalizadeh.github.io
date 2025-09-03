@@ -1,0 +1,337 @@
+<!doctype html>
+<html lang="en" data-theme="auto">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Masoud Khanalizadeh Imani</title>
+  <meta name="description" content="Research, Projects, and Publications in Computer Architecture & Storage Systems" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      /* Light (default) */
+      --bg:#ffffff; --card:#f6f8fa; --ink:#1f2328; --muted:#59636e; --accent:#0969da; --pill:#eef2f6;
+      --border:#d0d7de; --btn:#edf2f7; --btn-b:#cbd5e1; --shadow:0 1px 2px rgba(0,0,0,.04);
+      --max: 920px;
+    }
+    @media (prefers-color-scheme: dark){
+      :root{ --bg:#0b0d12; --card:#11151c; --ink:#e9edf1; --muted:#aab3bd; --accent:#79c0ff; --pill:#1a2330; --border:#1f2733; --btn:#243144; --btn-b:#2f3f54; --shadow:0 1px 2px rgba(0,0,0,.25); }
+    }
+    html[data-theme="light"]{ --bg:#ffffff; --card:#f6f8fa; --ink:#1f2328; --muted:#59636e; --accent:#0969da; --pill:#eef2f6; --border:#d0d7de; --btn:#edf2f7; --btn-b:#cbd5e1; --shadow:0 1px 2px rgba(0,0,0,.04); }
+    html[data-theme="dark"]{ --bg:#0b0d12; --card:#11151c; --ink:#e9edf1; --muted:#aab3bd; --accent:#79c0ff; --pill:#1a2330; --border:#1f2733; --btn:#243144; --btn-b:#2f3f54; --shadow:0 1px 2px rgba(0,0,0,.25); }
+
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif;}
+    a{color:var(--accent);text-decoration:none}
+    a:hover{text-decoration:underline}
+    .wrap{max-width:var(--max);margin:0 auto;padding:28px 16px 64px}
+    header{display:flex;gap:20px;align-items:center;justify-content:space-between;margin:8px 0 24px}
+    nav{display:flex;flex-wrap:wrap;gap:10px}
+    nav a{padding:10px 14px;border-radius:999px;background:var(--pill)}
+    .hero{display:grid;grid-template-columns:.9fr 1.1fr;gap:20px;align-items:center}
+    .hero h1{font-size:40px;line-height:1.1;margin:12px 0 8px}
+    .muted{color:var(--muted)}
+    .card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:18px;box-shadow:var(--shadow)}
+    h2{margin:0 0 12px;font-size:22px}
+    section{margin:26px 0}
+    ul{margin:8px 0 0 18px}
+    .grid{display:grid;gap:16px}
+    @media (min-width: 840px){.grid.cols-2{grid-template-columns:1fr 1fr}}
+    .pill{display:inline-block;padding:6px 10px;border-radius:999px;background:var(--pill);margin:4px 6px 0 0}
+    footer{margin-top:36px;color:var(--muted);font-size:14px}
+    .btn{display:inline-block;padding:10px 14px;border-radius:12px;background:var(--btn);border:1px solid var(--btn-b)}
+    .pub li{margin-bottom:10px}
+    .small{font-size:14px}
+    .kbd{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;background:var(--pill);border:1px solid var(--border);border-radius:6px;padding:2px 6px}
+    .controls{display:flex;gap:8px;align-items:center}
+    .toggle{cursor:pointer}
+    .avatar{width:180px;height:180px;border-radius:50%;border:3px solid var(--border);box-shadow:var(--shadow);object-fit:cover}
+    .subtle{font-size:13px;color:var(--muted)}
+    .kv{margin:6px 0}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div>
+        <div class="small muted">Personal Website</div>
+        <div class="small">Last update: <span id="last-update"></span></div>
+      </div>
+      <div class="controls">
+        <nav>
+          <a href="#about">About</a>
+          <a href="#interests">Research</a>
+          <a href="#publications">Publications</a>
+          <a href="#experience">Experience</a>
+          <a href="#academic">Academic</a>
+          <a href="#education">Education</a>
+          <a href="#skills">Skills</a>
+          <a href="#honors">Honors</a>
+          <a href="#patents">Patents</a>
+          <a href="#workshops">Workshops</a>
+          <a href="#languages">Languages</a>
+          <a href="#references">References</a>
+          <a href="#contact">Contact</a>
+        </nav>
+        <button id="themeBtn" class="btn toggle" aria-label="Toggle color theme" title="Toggle Light/Dark">🌗</button>
+      </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero card" id="about">
+      <div style="text-align:center">
+        <img src="profile.jpg" alt="Masoud Khanalizadeh Imani headshot" class="avatar" />
+        <h1>Masoud Khanalizadeh Imani</h1>
+        <p class="muted">PhD applicant — Computer Architecture &amp; Storage Systems</p>
+      </div>
+      <div>
+        <p>I work on I/O &amp; data storage systems, SSD/HDD caching, and reliability of open-source I/O cache modules. I enjoy building practical systems and evaluating them rigorously.</p>
+        <div class="kv subtle">
+          <div><strong>Location:</strong> Tehran, Iran</div>
+          <div><strong>Email:</strong> <a href="mailto:masoud.khanalizadehimani@gmail.com">masoud.khanalizadehimani@gmail.com</a></div>
+          <div><strong>Phone:</strong> <a href="tel:+989196469044">+98 919 646 9044</a></div>
+        </div>
+        <p>
+          <a class="btn" href="#publications">View publications</a>
+          <a class="btn" href="#projects" style="margin-left:8px">Browse projects</a>
+          <a class="btn" href="CV.pdf" target="_blank" rel="noopener" style="margin-left:8px">Download CV (PDF)</a>
+        </p>
+        <div class="subtle">Links: 
+          <a href="https://www.linkedin.com/in/masoud-khanalizadeh-imani-b17ab41bb/" target="_blank" rel="noopener">LinkedIn</a> ·
+          <a href="https://www.researchgate.net/profile/Masoud-Khanalizadeh-Imani" target="_blank" rel="noopener">ResearchGate</a> ·
+          <a href="https://www.hpds.ir/en/" target="_blank" rel="noopener">HPDS</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- RESEARCH -->
+    <section id="interests" class="card">
+      <h2>Research Interests</h2>
+      <div>
+        <span class="pill">Data Storage Systems</span>
+        <span class="pill">I/O Caching</span>
+        <span class="pill">High-Performance Computing</span>
+        <span class="pill">Operating Systems</span>
+        <span class="pill">Cloud Systems</span>
+        <span class="pill">IoT</span>
+        <span class="pill">Computer Networks</span>
+      </div>
+    </section>
+
+    <!-- PUBLICATIONS -->
+    <section id="publications" class="card">
+      <h2>Publications</h2>
+      <ul class="pub">
+        <li>
+          <strong>Re-architecting I/O Caches for Emerging Fast Storage Devices</strong> — <em>ASPLOS 2023</em>.<br/>
+          M. Ajdari, P. P. Sani, A. Moradi, <u>M. Khanalizadeh Imani</u>, A. H. Bazkhanei, H. Asadi.
+          <a href="https://doi.org/10.1145/3582016.3582041" target="_blank" rel="noopener">DOI</a>
+        </li>
+        <li>
+          <strong>A Near-Optimal SSD Cache Partitioning Framework to Maximize Performance-per-Cost in SAN Storage Systems</strong> — <em>under review</em>.<br/>
+          P. P. Sani*, <u>M. Khanalizadeh Imani*</u>, M. Ajdari, H. Asadi. (*equal contribution)
+        </li>
+      </ul>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section id="experience" class="card">
+      <h2>Experience</h2>
+      <div class="grid cols-2">
+        <div>
+          <strong>Researcher & Developer — Data Storage Systems</strong><br/>
+          High-Performance Data Storage (HPDS), Tehran — <span class="muted">Feb 2021 – Aug 2024</span>
+          <ul class="small">
+            <li>Worked on SSD/HDD I/O caching and reliability characterization.</li>
+            <li>Designed and evaluated storage modules and prototypes.</li>
+          </ul>
+        </div>
+        <div>
+          <strong>Network Technician & Help Desk</strong><br/>
+          Aria Technical Services, Tehran — <span class="muted">Aug 2013 – Feb 2018</span>
+          <ul class="small">
+            <li>Passive network setups; desktop/laptop repair and support.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ACADEMIC -->
+    <section id="academic" class="card">
+      <h2>Academic Experience</h2>
+      <ul>
+        <li><strong>Teaching Assistant — Logic Circuits Lab</strong>, Sharif University of Technology — <span class="muted">Feb 2022 – Jun 2022</span> (Supervisor: Dr. Shaahin Hessabi)</li>
+      </ul>
+    </section>
+
+    <!-- EDUCATION -->
+    <section id="education" class="card">
+      <h2>Education</h2>
+      <ul>
+        <li>
+          <strong>M.Sc. in Computer Engineering (Computer Architecture)</strong> — Sharif University of Technology, Tehran — <span class="muted">Sep 2020 – Mar 2023</span><br/>
+          GPA: 16.85/20. Thesis: <em>Reliability Characterization of Open-Source I/O Caching Modules in Data Storage Systems</em> (Advisor: Prof. Hossein Asadi)
+        </li>
+        <li>
+          <strong>B.Sc. in Computer Engineering (Software)</strong> — IAU Robat Karim — <span class="muted">Oct 2012 – Jun 2017</span><br/>
+          GPA: 15.79/20. Thesis: <em>Solving Sudoku Puzzle by Genetic Algorithm using C++</em>
+        </li>
+      </ul>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills" class="card">
+      <h2>Skills</h2>
+      <div class="grid cols-2">
+        <div>
+          <strong>Programming</strong>
+          <ul class="small">
+            <li>C/C++ (Intermediate), Python (Intermediate), Bash (Intermediate)</li>
+          </ul>
+          <strong>Platforms & Tools</strong>
+          <ul class="small">
+            <li>Linux, VMware Workstation, LaTeX, Git</li>
+            <li>Excel, PowerPoint, Word, Visio, Draw.io, Proteus, Xilinx ISE</li>
+          </ul>
+        </div>
+        <div>
+          <strong>Coursework & Topics</strong>
+          <ul class="small">
+            <li>Fault-Tolerant Systems, Hardware Security & Trust, SoC Design</li>
+            <li>Advanced Computer Networks, On-Chip Communications</li>
+          </ul>
+          <strong>Soft Skills</strong>
+          <ul class="small">
+            <li>Hard-working, Team-oriented, Patient/Flexible, Independent, Creative</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- HONORS -->
+    <section id="honors" class="card">
+      <h2>Honors</h2>
+      <ul>
+        <li>Ranked 41st (Top 0.03%) in Iran’s National M.Sc. Entrance Exam — <span class="muted">Sep 2020</span></li>
+        <li>Provincial rank, Kharazmi Student Festival — <span class="muted">Jul 2009</span></li>
+      </ul>
+    </section>
+
+    <!-- PATENTS -->
+    <section id="patents" class="card">
+      <h2>Patents (Applications in Preparation)</h2>
+      <ul class="small">
+        <li>Testing platform for disk power outages</li>
+        <li>Disk wipe and clone platform</li>
+        <li>Software module for automatic I/O cache size optimization</li>
+      </ul>
+    </section>
+
+    <!-- WORKSHOPS -->
+    <section id="workshops" class="card">
+      <h2>Workshops & Certifications</h2>
+      <ul>
+        <li>MCSE 2012 — Cando Institute, Tehran — <span class="muted">Sep 2015 – Sep 2016</span></li>
+        <li>Network+ — Cando Institute, Tehran — <span class="muted">Jul 2015</span></li>
+      </ul>
+    </section>
+
+    <!-- LANGUAGES -->
+    <section id="languages" class="card">
+      <h2>Languages</h2>
+      <ul>
+        <li>Persian (Farsi) — Mother tongue</li>
+        <li>English — preparing for TOEFL</li>
+      </ul>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" class="card">
+      <h2>Selected Projects</h2>
+      <ul>
+        <li>SSD-on-HDD cache evaluation and partitioning prototypes.</li>
+        <li>Reliability analysis of open-source I/O cache modules.</li>
+      </ul>
+    </section>
+
+    <!-- REFERENCES -->
+    <section id="references" class="card">
+      <h2>References</h2>
+      <ul class="small">
+        <li><strong>Prof. Hossein Asadi</strong> — Sharif University of Technology — <a href="mailto:asadi@sharif.edu">asadi@sharif.edu</a></li>
+        <li><strong>Assoc. Prof. Shaahin Hessabi</strong> — Sharif University of Technology — <a href="mailto:hessabi@sharif.edu">hessabi@sharif.edu</a></li>
+        <li><strong>Assoc. Prof. Alireza Ejlali</strong> — Sharif University of Technology — <a href="mailto:ejlali@sharif.edu">ejlali@sharif.edu</a></li>
+        <li><strong>Dr. Mohammadamin Ajdari</strong> — HPDS (Head of R&amp;D) — <a href="mailto:m.ajdari@sharif.edu">m.ajdari@sharif.edu</a></li>
+      </ul>
+      <div class="subtle">Full list available upon request.</div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="card">
+      <h2>Contact</h2>
+      <p>Email: <a href="mailto:masoud.khanalizadehimani@gmail.com">masoud.khanalizadehimani@gmail.com</a> · Phone: <a href="tel:+989196469044">+98 919 646 9044</a></p>
+      <p>LinkedIn: <a href="https://www.linkedin.com/in/masoud-khanalizadeh-imani-b17ab41bb/" target="_blank" rel="noopener">Profile</a> · ResearchGate: <a href="https://www.researchgate.net/profile/Masoud-Khanalizadeh-Imani" target="_blank" rel="noopener">Profile</a> · HPDS: <a href="https://www.hpds.ir/en/" target="_blank" rel="noopener">Lab</a></p>
+      <p><a class="btn" href="CV.pdf" target="_blank" rel="noopener">Download CV (PDF)</a></p>
+    </section>
+
+    <footer>
+      © <span id="y"></span> Masoud Khanalizadeh Imani — Light/Dark theme with user preference.
+    </footer>
+  </div>
+
+  <script>
+    // Last update + year
+    const d=new Date();
+    document.getElementById('y').textContent=d.getFullYear();
+    document.getElementById('last-update').textContent=d.toISOString().slice(0,10);
+
+    // Theme toggle with localStorage
+    const KEY='pref-theme';
+    const root=document.documentElement;
+    const btn=document.getElementById('themeBtn');
+
+    function applyTheme(val){
+      if(val==='light' || val==='dark'){
+        root.setAttribute('data-theme', val);
+      }else{
+        root.setAttribute('data-theme','auto');
+      }
+    }
+    function nextTheme(cur){ return cur==='auto' ? 'dark' : (cur==='dark' ? 'light' : 'auto'); }
+
+    const saved=localStorage.getItem(KEY);
+    applyTheme(saved || 'auto');
+
+    btn.addEventListener('click',()=>{
+      const cur=root.getAttribute('data-theme') || 'auto';
+      const nxt=nextTheme(cur);
+      applyTheme(nxt);
+      localStorage.setItem(KEY, nxt);
+      btn.textContent = (nxt==='dark' ? '🌙' : (nxt==='light' ? '☀️' : '🌗'));
+    });
+
+    const cur=root.getAttribute('data-theme') || 'auto';
+    btn.textContent = (cur==='dark' ? '🌙' : (cur==='light' ? '☀️' : '🌗'));
+  </script>
+
+  <!-- Optional structured data for better SEO -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Person",
+    "name":"Masoud Khanalizadeh Imani",
+    "jobTitle":"PhD Applicant",
+    "email":"mailto:masoud.khanalizadehimani@gmail.com",
+    "telephone":"+98-919-646-9044",
+    "affiliation":{"@type":"Organization","name":"HPDS"},
+    "url":document.location.href,
+    "sameAs":[
+      "https://www.linkedin.com/in/masoud-khanalizadeh-imani-b17ab41bb/",
+      "https://www.researchgate.net/profile/Masoud-Khanalizadeh-Imani",
+      "https://www.hpds.ir/en/"
+    ]
+  }
+  </script>
+</body>
+</html>
