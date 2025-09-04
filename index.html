@@ -1,485 +1,345 @@
 <!doctype html>
-<html lang="en" data-theme="auto">
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-  <title>Masoud Khanalizadeh Imani — Academic CV</title>
-  <meta name="description" content="Research in Computer Architecture & Storage Systems. Publications, experience, projects, and academic activities."/>
-  <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1"/>
-
-  <!-- Fonts: Inter -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
-
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Masoud Khanalizadeh Imani — Personal Site</title>
+  <meta name="description" content="Computer Architecture & Storage Systems researcher. Publications, projects, and contact info."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     :root{
-      --bg:#ffffff;
-      --card:#ffffff;         /* کارت سفید برای کنتراست بهتر */
-      --ink:#0f172a;
-      --ink-muted:#64748b;
-      --border:#e5e7eb;
-      --accent:#0a66c2;
-      --accent-weak:#e7f0fb;
+      --bg: #0b0d10;
+      --bg-elev: #111418;
+      --text: #e7e9ee;
+      --muted:#9aa3b2;
+      --accent:#0A66C2;
+      --rule:#242933;
+      --chip:#161b22;
+      --shadow: 0 10px 30px rgba(0,0,0,.25);
+      --radius: 16px;
+    }
+    :root.light{
+      --bg:#f7f9fc;
+      --bg-elev:#ffffff;
+      --text:#101318;
+      --muted:#5A6270;
+      --accent:#0A66C2;
+      --rule:#e6e9f0;
+      --chip:#f1f3f7;
+      --shadow: 0 8px 24px rgba(2, 6, 23, .08);
+    }
 
-      --radius:16px;
-      --shadow:0 2px 8px rgba(0,0,0,.06);
-      --lh:1.7;
-      --max: 980px;
-
-      --h1: clamp(1.9rem, 1.5rem + 1.6vw, 2.45rem);
-      --h2: clamp(1.15rem, 1rem + .6vw, 1.35rem);
-      --text: 16.5px;
-      --small: 14px;
-      --iconSize: 38px;
-      --iconR: 12px;
-    }
-    @media (prefers-color-scheme: dark){
-      :root{
-        --bg:#0b0d12;
-        --card:#0f1420;
-        --ink:#e6edf3;
-        --ink-muted:#9fb0c2;
-        --border:#1e293b;
-        --accent:#79c0ff;
-        --accent-weak:#142130;
-        --shadow:0 2px 10px rgba(0,0,0,.36);
-      }
-    }
-    html[data-theme="light"]{
-      --bg:#ffffff; --card:#ffffff; --ink:#0f172a; --ink-muted:#667085;
-      --border:#e5e7eb; --accent:#0a66c2; --accent-weak:#e7f0fb; --shadow:0 2px 8px rgba(0,0,0,.06);
-    }
-    html[data-theme="dark"]{
-      --bg:#0b0d12; --card:#0f1420; --ink:#e6edf3; --ink-muted:#9fb0c2;
-      --border:#1e293b; --accent:#79c0ff; --accent-weak:#142130; --shadow:0 2px 10px rgba(0,0,0,.36);
+    @media (prefers-color-scheme: light){
+      :root:not(.dark){ color-scheme: light; }
     }
 
     *{box-sizing:border-box}
-    html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif}
-    body{font-size:var(--text);line-height:var(--lh);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
-    a{color:var(--accent);text-decoration:none}
+    html,body{height:100%}
+    body{
+      margin:0; font-family:Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", sans-serif;
+      background:var(--bg); color:var(--text); line-height:1.6;
+    }
+    a{color:var(--accent); text-decoration:none}
     a:hover{text-decoration:underline}
-    img{max-width:100%;display:block}
 
-    .wrap{max-width:var(--max);margin:0 auto;padding:28px 16px 64px}
+    .container{max-width:980px; margin:0 auto; padding:22px 18px 64px}
 
-    .small{font-size:var(--small)}
-    .muted{color:var(--ink-muted)}
-    h1{font-size:var(--h1);line-height:1.15;margin:0 0 6px}
-    h2{font-size:var(--h2);margin:0 0 12px}
+    header{display:grid; grid-template-columns:120px 1fr auto; gap:18px; align-items:center;
+      padding:18px; background:var(--bg-elev); border:1px solid var(--rule); border-radius:var(--radius); box-shadow:var(--shadow);}
+    .avatar{width:120px; height:120px; border-radius:20px; border:3px solid var(--rule); object-fit:cover; object-position:center; background:#222;}
+    .title h1{margin:0 0 4px; font-size:clamp(22px, 3vw, 30px); letter-spacing:.2px}
+    .title .subtitle{color:var(--muted); font-weight:500}
 
-    .card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:18px;box-shadow:var(--shadow)}
-    section{margin:24px 0}
-    ul{margin:8px 0 0 18px}
+    .contact{display:flex; gap:14px; flex-wrap:wrap; align-items:center; margin-top:10px}
+    .contact .badge{display:inline-flex; align-items:center; gap:8px; padding:8px 12px; border-radius:999px; background:var(--chip); color:var(--text); border:1px solid var(--rule); font-size:14px}
+    .icons{display:flex; gap:10px; align-items:center}
+    .icon-btn{width:38px; height:38px; display:inline-grid; place-items:center; border-radius:999px; border:1px solid var(--rule); background:var(--bg-elev)}
+    .icon-btn:hover{background:var(--chip)}
+    .icon{width:18px; height:18px; fill:currentColor}
 
-    /* ---------- Header (multi-row, with top icons) ---------- */
-    .site-header{
-      display:grid;
-      grid-template-columns: 1fr auto;
-      grid-template-rows:auto auto;
-      gap:10px 12px;
-      align-items:center;
-      margin:6px 0 18px;
-    }
-    .site-header .meta{min-width:0}
-    .btn{display:inline-flex;align-items:center;gap:8px;padding:10px 12px;border-radius:12px;background:var(--card);border:1px solid var(--border);box-shadow:var(--shadow);font-weight:600}
-    .toggle{cursor:pointer;justify-self:end}
+    .toggle{display:inline-grid; place-items:center; width:42px; height:42px; border-radius:10px; border:1px solid var(--rule); background:var(--bg-elev); cursor:pointer}
+    .toggle:hover{background:var(--chip)}
 
-    .header-social{
-      grid-column:1 / -1;
-      display:flex;flex-wrap:wrap;gap:8px;
-    }
+    section{margin-top:26px}
+    .card{background:var(--bg-elev); border:1px solid var(--rule); border-radius:var(--radius); box-shadow:var(--shadow); padding:18px}
+    h2{margin:0 0 14px; font-size:18px; letter-spacing:.3px}
+    .rule{height:1px; background:var(--rule); border:none; margin:12px 0}
 
-    .main-nav{
-      grid-column:1 / -1;
-      display:flex;
-      flex-wrap:wrap;        /* چند ردیفه */
-      gap:8px;
-    }
-    .main-nav a{
-      padding:8px 12px;
-      border-radius:999px;
-      background:var(--accent-weak);
-      border:1px solid var(--border);
-      font-size:var(--small);
-      white-space:nowrap;
-      box-shadow:var(--shadow);
+    .list{display:grid; gap:12px}
+    .item-title{font-weight:600}
+    .muted{color:var(--muted)}
+
+    .grid{display:grid; grid-template-columns:1fr 1fr; gap:18px}
+    @media (max-width:900px){
+      header{grid-template-columns:90px 1fr auto}
+      .avatar{width:90px; height:90px; border-radius:14px}
+      .grid{grid-template-columns:1fr}
     }
 
-    /* ---------- Icon buttons (top & contact) ---------- */
-    .icon-row{display:flex;flex-wrap:wrap;gap:10px;margin:6px 0 0}
-    .icon-btn{
-      width:var(--iconSize);height:var(--iconSize);border-radius:999px;
-      display:inline-flex;align-items:center;justify-content:center;
-      background:var(--card);border:1px solid var(--border);box-shadow:var(--shadow);
-      transition:transform .12s ease, background .12s ease, border-color .12s ease, color .12s ease;
-      color:var(--ink);
-    }
-    .icon-btn:hover{
-      transform:translateY(-1px);
-      background:var(--accent);
-      border-color:var(--accent);
-      color:#fff;
-      text-decoration:none;
-    }
-    .icon-btn svg{width:20px;height:20px;fill:currentColor}
+    .chips{display:flex; flex-wrap:wrap; gap:8px}
+    .chip{padding:6px 10px; border-radius:999px; border:1px solid var(--rule); background:var(--chip); font-size:13px}
 
-    /* ---------- Hero ---------- */
-    .hero{display:grid;grid-template-columns:1fr 1.4fr;gap:20px;align-items:center}
-    @media (max-width:840px){ .hero{grid-template-columns:1fr} }
+    .pub{padding:12px; border:1px dashed var(--rule); border-radius:12px}
+    .pub .when{color:var(--muted); font-weight:600}
+    .pub .title{font-weight:700}
 
-    .avatar{width:170px;height:170px;border-radius:50%;border:3px solid var(--border);box-shadow:var(--shadow);object-fit:cover;margin:6px auto}
-    .kv{display:grid;grid-template-columns:auto 1fr;gap:6px 10px;margin:10px 0 0}
-    .kv div:first-child{color:var(--ink-muted)}
+    /* Force dates to a new line for clarity */
+    .date-block{display:block; margin-top:2px; font-size:90%; color:var(--muted)}
 
-    .pill{display:inline-block;padding:6px 10px;border-radius:999px;background:var(--accent-weak);border:1px solid var(--border);margin:4px 6px 0 0}
-    .grid{display:grid;gap:16px}
-    @media (min-width:840px){ .grid.cols-2{grid-template-columns:1fr 1fr} }
-
-    /* Portrait protection only */
-    .no-save{ position:relative; display:inline-block; }
-    .no-save img{
-      -webkit-user-drag:none; user-select:none; -webkit-touch-callout:none; pointer-events:none;
-    }
-
-    @media print{
-      .btn, .main-nav, .header-social, #themeBtn { display:none !important; }
-      .card{box-shadow:none;border-color:#bbb}
-      a{text-decoration:none;color:inherit}
-      body{background:#fff}
-    }
+    footer{margin-top:30px; color:var(--muted); font-size:13px; text-align:center}
   </style>
+  <script>
+    (function(){
+      const saved = localStorage.getItem('theme');
+      const root = document.documentElement;
+      const prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
+      if(saved === 'light' || (!saved && prefersLight)) root.classList.add('light');
+      function toggle(){
+        root.classList.toggle('light');
+        localStorage.setItem('theme', root.classList.contains('light') ? 'light' : 'dark');
+      }
+      window.__toggleTheme = toggle;
+    })();
+  </script>
 </head>
 <body>
-  <a href="#main" class="skip">Skip to content</a>
-  <div class="wrap">
+  <!-- Icon sprite -->
+  <svg width="0" height="0" style="position:absolute">
+    <symbol id="i-mail" viewBox="0 0 24 24"><path d="M4 6h16a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2zm0 2v.01L12 13l8-4.99V8L12 12 4 8z"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.7 11.7 0 0 0 3.7.6 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 8a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1 11.7 11.7 0 0 0 .6 3.7 1 1 0 0 1-.25 1l-2.25 2.1z"/></symbol>
+    <symbol id="i-linkedin" viewBox="0 0 24 24"><path d="M4.98 3.5C4.98 4.88 3.86 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.5 8h4V23h-4V8zm7.5 0h3.8v2.05h.05c.53-1 1.82-2.05 3.75-2.05 4 0 4.75 2.63 4.75 6.05V23h-4v-6.7c0-1.6-.03-3.65-2.25-3.65-2.25 0-2.6 1.75-2.6 3.55V23h-4V8z"/></symbol>
+    <symbol id="i-github" viewBox="0 0 24 24"><path d="M12 .5A12 12 0 0 0 0 12.7c0 5.4 3.4 10 8.2 11.6.6.1.8-.3.8-.6v-2.2c-3.3.8-4-1.4-4-1.4-.6-1.5-1.5-1.9-1.5-1.9-1.2-.8.1-.8.1-.8 1.3.1 2 .1 2 .1 1.2 2 3.1 1.4 3.8 1.1.1-.9.5-1.4.8-1.7-2.7-.3-5.5-1.4-5.5-6.1 0-1.4.5-2.5 1.2-3.4-.1-.3-.5-1.6.1-3.4 0 0 1-.3 3.5 1.3a11.6 11.6 0 0 1 6.4 0c2.5-1.6 3.5-1.3 3.5-1.3.6 1.8.2 3.1.1 3.4.8.9 1.2 2 1.2 3.4 0 4.7-2.9 5.7-5.6 6 .5.4.9 1.2.9 2.4v3.6c0 .3.2.7.8.6A12.2 12.2 0 0 0 24 12.7 12 12 0 0 0 12 .5z"/></symbol>
+    <!-- Minimal RG monogram to keep things brand-neutral -->
+    <symbol id="i-researchgate" viewBox="0 0 24 24">
+      <circle cx="12" cy="12" r="10" fill="currentColor" opacity=".12"/>
+      <text x="12" y="16" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="11" font-weight="700" fill="currentColor">RG</text>
+    </symbol>
+    <symbol id="i-globe" viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 .001 20.001A10 10 0 0 0 12 2zm6.9 6h-3.1a15.4 15.4 0 0 0-1.6-3.9 8.1 8.1 0 0 1 4.7 3.9zM12 4c.8 1.2 1.4 2.6 1.8 4H10.2A12.5 12.5 0 0 1 12 4zM8.8 6.1A15.4 15.4 0 0 0 7.2 8H4.1a8.1 8.1 0 0 1 4.7-3.9zM4 10h2.7a17.3 17.3 0 0 0 0 4H4a8.1 8.1 0 0 1 0-4zm.1 6H7.2c.4 1.4 1 2.8 1.6 3.9a8.1 8.1 0 0 1-4.7-3.9zM12 20a12.5 12.5 0 0 1-1.8-4h3.6A12.5 12.5 0 0 1 12 20zm3.2-1.9c.6-1.1 1.2-2.5 1.6-3.9h3.1a8.1 8.1 0 0 1-4.7 3.9zM20 14h-2.7a17.3 17.3 0 0 0 0-4H20a8.1 8.1 0 0 1 0 4z"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24"><path d="M6.8 4.3 5.4 2.9 2.9 5.4l1.4 1.4L6.8 4.3zM1 11h3v2H1v-2zm10-10h2v3h-2V1zm9.1 1.9 1.4 1.4-2.5 2.5-1.4-1.4 2.5-2.5zM18 11h3v2h-3v-2zM6.8 19.7 4.3 17.2l-1.4 1.4 2.5 2.5 1.4-1.4zM11 20h2v3h-2v-3zm9.1 1.1-2.5-2.5 1.4-1.4 2.5 2.5-1.4 1.4zM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10z"/></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></symbol>
+  </svg>
 
-    <!-- Header -->
-    <header class="site-header">
-      <div class="meta">
-        <div class="small muted">Academic Website</div>
-        <div class="small">Last update: <span id="last-update"></span></div>
+  <div class="container">
+    <header>
+      <img class="avatar" src="https://masoudkhanalizadeh.github.io/assets/MKhanalizadeh.jpeg" alt="Masoud Khanalizadeh Imani portrait" width="170" height="170"/>
+
+      <div class="title">
+        <h1>Masoud Khanalizadeh Imani</h1>
+        <div class="subtitle">Computer Architecture & Storage Systems Researcher</div>
+        <div class="contact">
+          <span class="badge"><svg class="icon"><use href="#i-mail"/></svg> <a href="mailto:masoud.khanalizadehimani@gmail.com">masoud.khanalizadehimani@gmail.com</a></span>
+          <span class="badge"><svg class="icon"><use href="#i-phone"/></svg> <a href="tel:+989196469044">+98 919 646 9044</a></span>
+          <span class="icons">
+            <a class="icon-btn" href="https://www.linkedin.com/in/masoud-khanalizadeh-imani-b17ab41bb/" target="_blank" aria-label="LinkedIn"><svg class="icon"><use href="#i-linkedin"/></svg></a>
+            <a class="icon-btn" href="https://www.researchgate.net/profile/Masoud-Khanalizadeh-Imani" target="_blank" aria-label="ResearchGate"><svg class="icon"><use href="#i-researchgate"/></svg></a>
+            <a class="icon-btn" href="https://github.com/MasoudKhanalizadeh" target="_blank" aria-label="GitHub"><svg class="icon"><use href="#i-github"/></svg></a>
+            <a class="icon-btn" href="https://masoudkhanalizadeh.github.io" target="_blank" aria-label="Website"><svg class="icon"><use href="#i-globe"/></svg></a>
+          </span>
+        </div>
       </div>
 
-      <button id="themeBtn" class="btn toggle" aria-label="Toggle color theme" title="Toggle Light/Dark">🌗 Theme</button>
-
-      <!-- Top social icons (iconified) -->
-      <div class="header-social">
-        <a class="icon-btn" href="https://github.com/MasoudKhanalizadeh" target="_blank" rel="noopener" aria-label="GitHub" title="GitHub">
-          <!-- GitHub -->
-          <svg viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M12 .5a12 12 0 0 0-3.79 23.4c.6.11.82-.27.82-.6v-2.1c-3.34.73-4.04-1.6-4.04-1.6-.55-1.38-1.35-1.75-1.35-1.75-1.11-.76.08-.74.08-.74 1.22.09 1.86 1.25 1.86 1.25 1.09 1.87 2.85 1.33 3.55 1.02.11-.8.43-1.33.78-1.64-2.67-.3-5.48-1.34-5.48-5.97 0-1.32.47-2.4 1.25-3.25-.13-.3-.54-1.52.12-3.17 0 0 1.01-.32 3.3 1.24a11.5 11.5 0 0 1 6 0c2.3-1.56 3.3-1.24 3.3-1.24.66 1.65.25 2.87.12 3.17.78.85 1.25 1.93 1.25 3.25 0 4.64-2.81 5.66-5.49 5.96.45.39.83 1.16.83 2.35v3.49c0 .34.22.72.83.6A12 12 0 0 0 12 .5z"/></svg>
-        </a>
-        <a class="icon-btn" href="https://www.linkedin.com/in/masoud-khanalizadeh-imani-b17ab41bb/" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn">
-          <!-- LinkedIn -->
-          <svg viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5.001 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM14.5 9c-2.2 0-3.5 1.2-3.5 2.7V21h4v-6.6c0-1 .7-1.7 1.7-1.7s1.8.8 1.8 1.9V21h4v-7.3C22.5 10.9 20.8 9 18.2 9c-1.7 0-2.9.8-3.7 1.8V9h-4z"/></svg>
-<!--         </a>
-        <a class="icon-btn" href="https://www.researchgate.net/profile/Masoud-Khanalizadeh-Imani" target="_blank" rel="noopener" aria-label="ResearchGate" title="ResearchGate">
-          <!-- RG -->
-          <svg viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M3 5.5A2.5 2.5 0 0 1 5.5 3h13A2.5 2.5 0 0 1 21 5.5v13A2.5 2.5 0 0 1 18.5 21h-13A2.5 2.5 0 0 1 3 18.5v-13zm5.4 2h2.2l2.2 3.5c.4.6.8.9 1.4 1.1l1 .3v1.8l-.9-.1c-1.2-.2-2-.7-2.8-1.6l-.4-.5V17H9.3V7.5zm9.2 0h-3.6v1.8h1v5.9h2.6V7.5z"/></svg>
-        </a> -->
-        <a class="icon-btn" href="https://masoudkhanalizadeh.github.io" target="_blank" rel="noopener" aria-label="Website" title="Website">
-          <!-- Globe -->
-          <svg viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm7.9 9h-3.2a12.6 12.6 0 0 0-1.4-5.1A8.1 8.1 0 0 1 19.9 11zM12 4c.9 1.2 1.7 2.8 2.1 5H9.9c.4-2.2 1.2-3.8 2.1-5zM6.7 6.9A12.6 12.6 0 0 0 5.3 11H2.1a8.1 8.1 0 0 1 4.6-4.1zM4.1 13h3.2c.3 1.8.9 3.5 1.7 5A8.1 8.1 0 0 1 4.1 13zm6 0h3.8c-.4 2.2-1.2 3.8-1.9 5-0.8-1.2-1.5-2.8-1.9-5zm5 0h3.8a8.1 8.1 0 0 1-4.9 5c.9-1.5 1.4-3.2 1.7-5zM8.3 7h7.4c.3.9.5 1.9.6 3H7.7c.1-1.1.3-2.1.6-3z"/></svg>
-        </a>
-        <!-- Scholar (اختیاری) -->
-        <a class="icon-btn" href="https://scholar.google.com/scholar?hl=en&q=Masoud+Khanalizadeh+Imani" target="_blank" rel="noopener" aria-label="Google Scholar" title="Google Scholar">
-          <!-- cap -->
-          <svg viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="m12 3-10 7h3v7h6v-5h2v5h6v-7h3L12 3z"/></svg>
-        </a>
-      </div>
-
-      <!-- Multi-row navigation -->
-      <nav class="main-nav" aria-label="Primary">
-        <a href="#about">About</a>
-        <a href="#interests">Research</a>
-        <a href="#education">Education</a>
-        <a href="#publications">Publications</a>
-        <a href="#experience">Experience</a>
-        <a href="#academic">Academic</a>
-        <a href="#workshops">Certificates</a>
-        <a href="#projects">Projects</a>
-        <a href="#contact">Contact</a>
-      </nav>
+      <button class="toggle" onclick="__toggleTheme()" title="Toggle theme" aria-label="Toggle theme">
+        <svg class="icon" id="themeIcon" viewBox="0 0 24 24"><use href="#i-sun"/></svg>
+      </button>
     </header>
 
-    <main id="main">
-      <!-- HERO -->
-      <section class="hero card" id="about" aria-labelledby="name">
-        <div style="text-align:center">
-          <div class="no-save">
-            <img src="/assets/MKhanalizadeh.jpeg" alt="Portrait of Masoud Khanalizadeh Imani" class="avatar" loading="lazy" draggable="false" />
-          </div>
-          <h1 id="name">Masoud Khanalizadeh Imani</h1>
-          <p class="muted">Computer Architecture &amp; Storage Systems</p>
-        </div>
-        <div>
-          <p>I am a computer architecture researcher specializing in I/O and data storage systems. My recent work focuses on SSD/HDD caching strategies, reliability characterization of open-source caching modules, and cost-efficient performance optimization in large-scale SAN environments. Beyond theoretical design, I am passionate about building practical prototypes, conducting rigorous experimental evaluations, and developing tools that make advanced storage technologies more reliable and accessible. My broader goal is to contribute to the next generation of scalable, high-performance, and fault-tolerant storage infrastructures.</p>
-          <div class="kv small">
-            <div>Location</div><div>Tehran, Iran</div>
-            <div>Email</div><div><a href="mailto:masoud.khanalizadehimani@gmail.com">masoud.khanalizadehimani@gmail.com</a></div>
-            <div>CV</div><div><a class="btn" href="/assets/CV.pdf" target="_blank" rel="noopener">Download CV (PDF)</a></div>
-          </div>
-          <!-- (Optional) a small icon row under contact -->
-          <div class="icon-row" aria-label="Quick links" style="margin-top:10px">
-            <a class="icon-btn" href="https://github.com/MasoudKhanalizadeh" target="_blank" rel="noopener" aria-label="GitHub" title="GitHub">
-              <svg viewBox="0 0 24 24"><path d="M12 .5a12 12 0 0 0-3.79 23.4c.6.11.82-.27.82-.6v-2.1c-3.34.73-4.04-1.6-4.04-1.6-.55-1.38-1.35-1.75-1.35-1.75-1.11-.76.08-.74.08-.74 1.22.09 1.86 1.25 1.86 1.25 1.09 1.87 2.85 1.33 3.55 1.02.11-.8.43-1.33.78-1.64-2.67-.3-5.48-1.34-5.48-5.97 0-1.32.47-2.4 1.25-3.25-.13-.3-.54-1.52.12-3.17 0 0 1.01-.32 3.3 1.24a11.5 11.5 0 0 1 6 0c2.3-1.56 3.3-1.24 3.3-1.24.66 1.65.25 2.87.12 3.17.78.85 1.25 1.93 1.25 3.25 0 4.64-2.81 5.66-5.49 5.96.45.39.83 1.16.83 2.35v3.49c0 .34.22.72.83.6A12 12 0 0 0 12 .5z"/></svg>
-            </a>
-            <a class="icon-btn" href="https://www.linkedin.com/in/masoud-khanalizadeh-imani-b17ab41bb/" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn">
-              <svg viewBox="0 0 24 24"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5.001 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM14.5 9c-2.2 0-3.5 1.2-3.5 2.7V21h4v-6.6c0-1 .7-1.7 1.7-1.7s1.8.8 1.8 1.9V21h4v-7.3C22.5 10.9 20.8 9 18.2 9c-1.7 0-2.9.8-3.7 1.8V9h-4z"/></svg>
-            </a>
-            <a class="icon-btn" href="https://www.researchgate.net/profile/Masoud-Khanalizadeh-Imani" target="_blank" rel="noopener" aria-label="ResearchGate" title="ResearchGate">
-              <svg viewBox="0 0 24 24"><path d="M3 5.5A2.5 2.5 0 0 1 5.5 3h13A2.5 2.5 0 0 1 21 5.5v13A2.5 2.5 0 0 1 18.5 21h-13A2.5 2.5 0 0 1 3 18.5v-13zm5.4 2h2.2l2.2 3.5c.4.6.8.9 1.4 1.1l1 .3v1.8l-.9-.1c-1.2-.2-2-.7-2.8-1.6l-.4-.5V17H9.3V7.5zm9.2 0h-3.6v1.8h1v5.9h2.6V7.5z"/></svg>
-            </a>
-            <a class="icon-btn" href="https://masoudkhanalizadeh.github.io" target="_blank" rel="noopener" aria-label="Website" title="Website">
-              <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm7.9 9h-3.2a12.6 12.6 0 0 0-1.4-5.1A8.1 8.1 0 0 1 19.9 11zM12 4c.9 1.2 1.7 2.8 2.1 5H9.9c.4-2.2 1.2-3.8 2.1-5z"/></svg>
-            </a>
-          </div>
-        </div>
-      </section>
+    <!-- Research Interests -->
+    <section class="card">
+      <h2>Research Interests</h2>
+      <div class="chips">
+        <span class="chip">Data Storage Systems</span>
+        <span class="chip">I/O Caching</span>
+        <span class="chip">HPC</span>
+        <span class="chip">Operating Systems</span>
+        <span class="chip">Computer Architecture</span>
+        <span class="chip">Cloud Systems</span>
+        <span class="chip">IoT</span>
+        <span class="chip">Computer Networks</span>
+      </div>
+    </section>
 
-      <!-- RESEARCH -->
-      <section id="interests" class="card">
-        <h2>Research Interests</h2>
-        <div>
-          <span class="pill">Data Storage Systems</span>
-          <span class="pill">I/O Caching</span>
-          <span class="pill">HPC</span>
-          <span class="pill">Operating Systems</span>
-          <span class="pill">Computer Architecture</span>
-          <span class="pill">Cloud Systems</span>
-          <span class="pill">IoT</span>
-          <span class="pill">Computer Networks</span>
-        </div>
-      </section>
-
-      <!-- EDUCATION -->
-      <section id="education" class="card">
+    <!-- Education + Experience grid -->
+    <section class="grid">
+      <div class="card">
         <h2>Education</h2>
-        <ul>
-          <li>
-            <strong>M.Sc. in Computer Engineering (Computer Architecture)</strong> — Sharif University of Technology (SUT), Tehran —
-            <span class="muted">Sep 2020 – Mar 2023</span><br/>
-            GPA: 16.85/20. Thesis: <em>Reliability Characterization of Open-Source I/O Caching Modules in Data Storage Systems</em>
-            (Advisor: Prof. Hossein Asadi) · Research Lab:
-            <a href="http://dsn.ce.sharif.edu/members/" target="_blank" rel="noopener">DSN Lab</a>
-          </li>
-          <li>
-            <strong>B.Sc. in Computer Engineering (Software)</strong> — IAU Robat Karim —
-            <span class="muted">Oct 2012 – Jun 2017</span><br/>
-            GPA: 15.79/20. Thesis: <em>Solving Sudoku Puzzle by Genetic Algorithm using C++</em>
-          </li>
-        </ul>
-      </section>
-      
-      <!-- PUBLICATIONS -->
-      <section id="publications" class="card">
-        <h2>Publications</h2>
-        <ul class="pub">
-          <li>
-            <strong>Re-architecting I/O Caches for Emerging Fast Storage Devices</strong> — <em>ASPLOS 2023</em>.<br/>
-            M. Ajdari, P. P. Sani, A. Moradi, <u>M. Khanalizadeh Imani</u>, A. H. Bazkhanei, H. Asadi.
-            <a href="https://doi.org/10.1145/3582016.3582041" target="_blank" rel="noopener">DOI</a>
-          </li>
-          <li>
-            <strong>A Near-Optimal SSD Cache Partitioning Framework to Maximize Performance-per-Cost in SAN Storage Systems</strong> — <em>under review</em>.<br/>
-            P. P. Sani*, <u>M. Khanalizadeh Imani*</u>, M. Ajdari, H. Asadi. (*equal contribution)
-          </li>
-        </ul>
-      </section>
+        <div class="list">
+          <div>
+            <div class="item-title">M.Sc. in Computer Engineering (Computer Architecture)</div>
+            <div class="muted">Sharif University of Technology (SUT), Tehran, Iran</div>
+            <span class="date-block"><strong>Sep 2020 – Mar 2023</strong></span>
+            <div>GPA: <strong>16.85/20</strong></div>
+            <div><strong>Thesis:</strong> Reliability Characterization of Open-Source I/O Caching Modules in Data Storage Systems</div>
+            <div><strong>Advisor:</strong> Prof. Hossein Asadi · <strong>Lab:</strong> <a href="http://dsn.ce.sharif.edu/members/" target="_blank" rel="noopener">DSN Lab</a></div>
+            <div class="muted">Focus: Fault-Tolerant Systems, Hardware Security & Trust, SoC Design, Advanced Computer Networks, On-Chip Communications</div>
+          </div>
+          <hr class="rule"/>
+          <div>
+            <div class="item-title">B.Sc. in Computer Engineering (Software Engineering)</div>
+            <div class="muted">Islamic Azad University (IAU), Robat Karim</div>
+            <span class="date-block"><strong>Oct 2012 – Jun 2017</strong></span>
+            <div>GPA: <strong>15.79/20</strong></div>
+            <div><strong>Thesis:</strong> Solving Sudoku Puzzle by Genetic Algorithm Using C++</div>
+          </div>
+        </div>
+      </div>
 
-      <!-- PATENTS -->
-      <section id="patents" class="card">
+      <div class="card">
+        <h2>Experience</h2>
+        <div class="list">
+          <div>
+            <div class="item-title">Researcher & Developer — Data Storage Systems</div>
+            <div class="muted">High-Performance Data Storage (HPDS) Lab, Tehran</div>
+            <span class="date-block"><strong>Feb 2021 – Aug 2024</strong></span>
+            <ul>
+              <li>Worked on SSD/HDD I/O caching with performance and reliability characterization.</li>
+              <li>Designed and evaluated storage modules and prototypes.</li>
+            </ul>
+            <div class="muted"><a href="https://www.hpds.ir/en/" target="_blank" rel="noopener">Company Website</a></div>
+          </div>
+          <hr class="rule"/>
+          <div>
+            <div class="item-title">Network Technician & Help Desk</div>
+            <div class="muted">Aria Technical Services, Tehran</div>
+            <span class="date-block"><strong>Aug 2013 – Feb 2018</strong></span>
+            <ul>
+              <li>IT support including network setup, desktop maintenance, and basic CCTV installation.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Publications -->
+    <section class="card">
+      <h2>Publications</h2>
+      <div class="list">
+        <div class="pub">
+          <div class="when">March 2023 — ASPLOS 2023</div>
+          <div class="title">Re-architecting I/O Caches for Emerging Fast Storage Devices</div>
+          <div><strong>Authors:</strong> Mohammadamin Ajdari, Pouria Peykani Sani, Amirhossein Moradi, <strong>Masoud Khanalizadeh Imani</strong>, Amir Hossein Bazkhanei, Hossein Asadi</div>
+          <div>Proceedings of the 28th ACM International Conference on Architectural Support for Programming Languages and Operating Systems (Volume 3), ACM, pp. 542–555. <a href="https://doi.org/10.1145/3582016.3582041" target="_blank" rel="noopener">DOI</a></div>
+        </div>
+        <div class="pub">
+          <div class="when">Under Review</div>
+          <div class="title">A Near-Optimal SSD Cache Partitioning Framework to Maximize Performance-per-Cost in SAN Storage Systems</div>
+          <div><strong>Authors:</strong> Pouria Peykani Sani*, <strong>Masoud Khanalizadeh Imani*</strong>, Mohammadamin Ajdari, Hossein Asadi</div>
+          <div class="muted">*Equal contribution</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Academic Experience / Projects grid -->
+    <section class="grid">
+      <div class="card">
+        <h2>Academic Experience</h2>
+        <div class="list">
+          <div>
+            <div class="item-title">Question Designer & Judge — Robotics Track</div>
+            <div class="muted">HardWar 2025, Sharif University of Technology</div>
+            <span class="date-block"><strong>Apr 2025</strong></span>
+            <div><a href="https://hardwar-sharif.ir/" target="_blank" rel="noopener">Competition Website</a></div>
+          </div>
+          <hr class="rule"/>
+          <div>
+            <div class="item-title">Teaching Assistant — Logic Circuits Lab</div>
+            <div class="muted">Sharif University of Technology</div>
+            <span class="date-block"><strong>Feb 2022 – Jun 2022</strong></span>
+            <div>Supervisor: Dr. Shaahin Hessabi</div>
+          </div>
+          <hr class="rule"/>
+          <div>
+            <div class="item-title">Founder & Team Lead — Robotics Lab</div>
+            <div class="muted">IAU, Robat Karim</div>
+            <span class="date-block"><strong>Oct 2015 – Jun 2017</strong></span>
+            <div>Established a robotics lab; led teams building maze-solving/path-finding robots; participated in national competitions.</div>
+            <div><a href="https://drive.google.com/drive/folders/1QX_zl7KSDuhBN_rU-jr9-XzJUztgGyjf?usp=sharing" target="_blank" rel="noopener">Project Docs & Videos</a></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>Selected Projects</h2>
+        <div class="list">
+          <div>
+            <div class="item-title">CIMulator — Computation-In-Memory Simulator</div>
+            <div class="muted">Independent Project</div>
+            <span class="date-block"><strong>Aug 2025</strong></span>
+            <div>Interactive Jupyter-based simulator for memristor devices and crossbar arrays with real-time plotting and GUI.</div>
+            <div><a href="https://github.com/MasoudKhanalizadeh/CIMulator" target="_blank" rel="noopener">GitHub Repository</a></div>
+          </div>
+          <hr class="rule"/>
+          <div>
+            <div class="item-title">PASS — I/O Cache Test & Analysis Framework</div>
+            <div class="muted">Part of ASPLOS'23 experiments</div>
+            <span class="date-block"><strong>2023–2024</strong></span>
+            <div>Framework for testing, analyzing, and benchmarking I/O cache modules across configurations.</div>
+            <div><a href="https://github.com/MasoudKhanalizadeh/PASS" target="_blank" rel="noopener">GitHub Repository</a></div>
+          </div>
+          <hr class="rule"/>
+          <div>
+            <div class="item-title">Reliability Analysis of Open-Source I/O Cache Modules</div>
+            <div class="muted">HPDS Lab, Tehran</div>
+            <span class="date-block"><strong>2021–2024</strong></span>
+            <div>Empirical evaluation under diverse workloads to characterize stability and fault-tolerance.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Patents / Certificates / Honors -->
+    <section class="grid">
+      <div class="card">
         <h2>Patents (Applications in Preparation)</h2>
         <ul>
           <li>Testing platform for disk power outages</li>
           <li>Disk wipe and clone platform</li>
           <li>Software module for automatic I/O cache size optimization</li>
         </ul>
-      </section>
+      </div>
 
-      <!-- EXPERIENCE -->
-      <section id="experience" class="card">
-        <h2>Experience</h2>
-        <div class="grid cols-2">
-          <div>
-            <strong>Researcher &amp; Developer — Data Storage Systems</strong><br/>
-            High-Performance Data Storage (HPDS), Tehran — <span class="muted">Feb 2021 – Aug 2024</span>
-            <ul class="small">
-              <li>Worked on SSD/HDD I/O caching and performance/reliability characterization.</li>
-              <li>Designed and evaluated storage modules and prototypes.</li>
-            </ul>
-          </div>
-          <div>
-            <strong>Network Technician &amp; Help Desk</strong><br/>
-            Aria Technical Services, Tehran — <span class="muted">Aug 2013 – Feb 2018</span>
-            <ul class="small">
-              <li>Passive network setups; desktop/laptop repair and support; basic CCTV install &amp; setup.</li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      <!-- ACADEMIC EXPERIENCE -->
-      <section id="academic" class="card">
-        <h2>Academic Experience</h2>
-        <ul class="tight">
-          <li>
-            <strong>Question Designer &amp; Judge — Robotics Track, Hardwar 2025 Competition</strong><br/>
-            Sharif University of Technology — <span class="muted">Apr 2025</span> ·
-            <a href="https://hardwar-sharif.ir/staff-members" target="_blank" rel="noopener">Competition Website</a>
-          </li>
-          <li>
-            <strong>Teaching Assistant — Logic Circuits Lab</strong><br/>
-            Sharif University of Technology — <span class="muted">Feb 2022 – Jun 2022</span>
-            (Supervisor: Dr. Shaahin Hessabi)
-          </li>
-          <li>
-            <strong>Founder &amp; Team Lead — Robotics Lab</strong><br/>
-            IAU Robat Karim — <span class="muted">Oct 2015 – Jun 2017</span> ·
-            <a href="https://drive.google.com/drive/folders/1QX_zl7KSDuhBN_rU-jr9-XzJUztgGyjf?usp=sharing" target="_blank" rel="noopener">Docs &amp; Videos</a><br/>
-            Established a robotics lab with university funding; led a student team developing maze-solving and path-finding robots for national competitions.
-          </li>
-        </ul>
-      </section>
-
-      <!-- WORKSHOPS & CERTIFICATES -->
-      <section id="workshops" class="card">
-        <h2>Workshops &amp; Certificates</h2>
+      <div class="card">
+        <h2>Workshops & Certificates</h2>
         <ul>
-          <li>
-            <strong>10th Winter Seminar Series (WSS10)</strong> — Sharif University of Technology —
-            <em>Apr 2025</em> ·
-            <a href="certificates/WSS10.png" target="_blank" rel="noopener">View Certificate</a>
-          </li>
-          <li>
-            <strong>5-Day Gen AI Intensive</strong> — Google/Kaggle —
-            <em>Apr 2025</em> ·
-            <a href="certificates/GenAI.png" target="_blank" rel="noopener">View Certificate</a>
-          </li>
-          <li>
-            <strong>MCSE 2012</strong> — Cando Institute, Tehran —
-            <em>Sep 2015 – Sep 2016</em> ·
-            <a href="https://drive.google.com/file/d/1ZAPUOkVtnyCpJUiWYSyd9C8eisL-6ZOC/view" target="_blank" rel="noopener">View Certificate</a>
-          </li>
-          <li>
-            <strong>Network+</strong> — Cando Institute, Tehran —
-            <em>Jul 2015</em> ·
-            <a href="https://drive.google.com/file/d/1T9DagM4nmjxPky4GBqPl0rI3tFUngiU9/view" target="_blank" rel="noopener">View Certificate</a>
-          </li>
+          <li>10th Winter Seminar Series (WSS10), SUT — <a href="https://masoudkhanalizadeh.github.io/certificates/WSS10.png" target="_blank" rel="noopener">Certificate</a> — <span class="muted">Apr 2025</span></li>
+          <li>5-Day Gen AI Intensive, Google/Kaggle — <a href="https://masoudkhanalizadeh.github.io/certificates/GenAI.png" target="_blank" rel="noopener">Certificate</a> — <span class="muted">Apr 2025</span></li>
+          <li>MCSE 2012, CANDO Institute — <a href="https://drive.google.com/file/d/1ZAPUOkVtnyCpJUiWYSyd9C8eisL-6ZOC/view?usp=drive_link" target="_blank" rel="noopener">Certificate</a> — <span class="muted">2015–2016</span></li>
+          <li>Network+, CANDO Institute — <a href="https://drive.google.com/file/d/1T9DagM4nmjxPky4GBqPl0rI3tFUngiU9/view?usp=sharing" target="_blank" rel="noopener">Certificate</a> — <span class="muted">Jul 2015</span></li>
         </ul>
-      </section>
+      </div>
+    </section>
 
-      <!-- PROJECTS -->
-      <section id="projects" class="card">
-        <h2>Selected Projects</h2>
-        <ul>
-          <li>
-            <strong>CIMulator — Computation-In-Memory Simulator</strong><br/>
-            Interactive Jupyter-based simulator for memristor devices and crossbar arrays.
-            <span class="muted"> · </span>
-            <a href="https://github.com/MasoudKhanalizadeh/CIMulator" target="_blank" rel="noopener">GitHub Repository</a>
-          </li>
-          <li>
-            <strong>PASS — I/O Cache Test &amp; Analysis Framework</strong><br/>
-            Framework for testing, analyzing, and benchmarking I/O cache modules across configurations.
-            <span class="muted"> · </span>
-            <a href="https://github.com/MasoudKhanalizadeh/PASS" target="_blank" rel="noopener">GitHub Repository</a>
-          </li>
-          <li>
-            <strong>Reliability Analysis of Open-Source I/O Cache Modules</strong><br/>
-            Empirical study to assess stability and fault-tolerance.
-          </li>
-        </ul>
-        <p class="small muted" style="margin-top:10px">
-          For a complete list of projects, see my
-          <a href="https://github.com/MasoudKhanalizadeh" target="_blank" rel="noopener">GitHub profile</a>.
-        </p>
-      </section>
+    <section class="card">
+      <h2>Honors</h2>
+      <ul>
+        <li><strong>Ranked 41st (Top 0.03%)</strong> in Iran’s National Entrance Exam for M.Sc. in Computer Engineering — <span class="muted">Sep 2020</span></li>
+        <li>Provincial rank, Kharazmi Student Festival — <a href="https://drive.google.com/file/d/1oRxeVQ-O0VubHNI8pAPimfgPVS_yTENG/view?usp=sharing" target="_blank" rel="noopener">Certificate</a> — <span class="muted">Jul 2009</span></li>
+      </ul>
+    </section>
 
-      <!-- CONTACT -->
-      <section id="contact" class="card">
-        <h2>Contact</h2>
-        <p>Email: <a href="mailto:masoud.khanalizadehimani@gmail.com">masoud.khanalizadehimani@gmail.com</a></p>
-        <div class="icon-row" aria-label="Social links">
-          <a class="icon-btn" href="https://github.com/MasoudKhanalizadeh" target="_blank" rel="noopener" aria-label="GitHub" title="GitHub">
-            <svg viewBox="0 0 24 24"><path d="M12 .5a12 12 0 0 0-3.79 23.4c.6.11.82-.27.82-.6v-2.1c-3.34.73-4.04-1.6-4.04-1.6-.55-1.38-1.35-1.75-1.35-1.75-1.11-.76.08-.74.08-.74 1.22.09 1.86 1.25 1.86 1.25 1.09 1.87 2.85 1.33 3.55 1.02.11-.8.43-1.33.78-1.64-2.67-.3-5.48-1.34-5.48-5.97 0-1.32.47-2.4 1.25-3.25-.13-.3-.54-1.52.12-3.17 0 0 1.01-.32 3.3 1.24a11.5 11.5 0 0 1 6 0c2.3-1.56 3.3-1.24 3.3-1.24.66 1.65.25 2.87.12 3.17.78.85 1.25 1.93 1.25 3.25 0 4.64-2.81 5.66-5.49 5.96.45.39.83 1.16.83 2.35v3.49c0 .34.22.72.83.6A12 12 0 0 0 12 .5z"/></svg>
-          </a>
-          <a class="icon-btn" href="https://www.linkedin.com/in/masoud-khanalizadeh-imani-b17ab41bb/" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn">
-            <svg viewBox="0 0 24 24"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5.001 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM14.5 9c-2.2 0-3.5 1.2-3.5 2.7V21h4v-6.6c0-1 .7-1.7 1.7-1.7s1.8.8 1.8 1.9V21h4v-7.3C22.5 10.9 20.8 9 18.2 9c-1.7 0-2.9.8-3.7 1.8V9h-4z"/></svg>
-          </a>
-          <a class="icon-btn" href="https://www.researchgate.net/profile/Masoud-Khanalizadeh-Imani" target="_blank" rel="noopener" aria-label="ResearchGate" title="ResearchGate">
-            <svg viewBox="0 0 24 24"><path d="M3 5.5A2.5 2.5 0 0 1 5.5 3h13A2.5 2.5 0 0 1 21 5.5v13A2.5 2.5 0 0 1 18.5 21h-13A2.5 2.5 0 0 1 3 18.5v-13zm5.4 2h2.2l2.2 3.5c.4.6.8.9 1.4 1.1l1 .3v1.8l-.9-.1c-1.2-.2-2-.7-2.8-1.6l-.4-.5V17H9.3V7.5zm9.2 0h-3.6v1.8h1v5.9h2.6V7.5z"/></svg>
-          </a>
-          <a class="icon-btn" href="https://masoudkhanalizadeh.github.io" target="_blank" rel="noopener" aria-label="Website" title="Website">
-            <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm7.9 9h-3.2a12.6 12.6 0 0 0-1.4-5.1A8.1 8.1 0 0 1 19.9 11zM12 4c.9 1.2 1.7 2.8 2.1 5H9.9c.4-2.2 1.2-3.8 2.1-5z"/></svg>
-          </a>
-        </div>
-      </section>
-    </main>
-
-    <footer class="small muted" style="margin-top:36px">
-      © <span id="y"></span> Masoud Khanalizadeh Imani — Clean, accessible theme with user preference.
+    <footer>
+      © <span id="y"></span> Masoud Khanalizadeh Imani
     </footer>
   </div>
 
   <script>
-    // Last update + year
-    const d=new Date();
-    document.getElementById('y').textContent=d.getFullYear();
-    document.getElementById('last-update').textContent=d.toISOString().slice(0,10);
+    // Update footer year
+    document.getElementById('y').textContent = new Date().getFullYear();
 
-    // Theme toggle
-    const KEY='pref-theme';
-    const root=document.documentElement;
-    const btn=document.getElementById('themeBtn');
-
-    function applyTheme(val){
-      if(val==='light' || val==='dark'){ root.setAttribute('data-theme', val); }
-      else{ root.setAttribute('data-theme','auto'); }
+    // Swap sun/moon glyph based on theme at runtime
+    const root = document.documentElement;
+    const icon = document.getElementById('themeIcon');
+    function paintIcon(){
+      const light = root.classList.contains('light');
+      icon.innerHTML = '';
+      const use = document.createElementNS('http://www.w3.org/2000/svg','use');
+      use.setAttributeNS('http://www.w3.org/1999/xlink','href', light ? '#i-moon' : '#i-sun');
+      icon.appendChild(use);
     }
-    function nextTheme(cur){ return cur==='auto' ? 'dark' : (cur==='dark' ? 'light' : 'auto'); }
-
-    applyTheme(localStorage.getItem(KEY) || 'auto');
-
-    btn.addEventListener('click',()=>{
-      const cur=root.getAttribute('data-theme') || 'auto';
-      const nxt=nextTheme(cur);
-      applyTheme(nxt);
-      localStorage.setItem(KEY, nxt);
-      btn.textContent = (nxt==='dark' ? '🌙 Theme' : (nxt==='light' ? '☀️ Theme' : '🌗 Theme'));
-    });
-
-    // Initial icon text
-    const cur=root.getAttribute('data-theme') || 'auto';
-    btn.textContent = (cur==='dark' ? '🌙 Theme' : (cur==='light' ? '☀️ Theme' : '🌗 Theme'));
-
-    // Protect only portrait
-    const portraitGuard = document.querySelector('.no-save');
-    if (portraitGuard) {
-      portraitGuard.addEventListener('contextmenu', e => e.preventDefault());
-      portraitGuard.addEventListener('dragstart', e => e.preventDefault());
-    }
-  </script>
-
-  <!-- Structured data -->
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"Person",
-    "name":"Masoud Khanalizadeh Imani",
-    "jobTitle":"Researcher",
-    "email":"mailto:masoud.khanalizadehimani@gmail.com",
-    "affiliation":{"@type":"Organization","name":"HPDS"},
-    "sameAs":[
-      "https://github.com/MasoudKhanalizadeh",
-      "https://www.linkedin.com/in/masoud-khanalizadeh-imani-b17ab41bb/",
-      "https://www.researchgate.net/profile/Masoud-Khanalizadeh-Imani",
-      "https://masoudkhanalizadeh.github.io"
-    ],
-    "url": "https://masoudkhanalizadeh.github.io"
-  }
+    paintIcon();
+    const _origToggle = window.__toggleTheme;
+    window.__toggleTheme = function(){ _origToggle(); paintIcon(); };
   </script>
 </body>
 </html>
