@@ -4,45 +4,29 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <title>Masoud Khanalizadeh Imani — Academic CV</title>
-  <meta name="description" content="PhD applicant in Computer Architecture & Storage Systems. Publications, experience, projects, and academic activities."/>
+  <title>Masoud Khanalizadeh Imani — Academic Profile</title>
+  <meta name="description" content="Computer Architecture & Storage Systems researcher. Publications, education, experience, academic activities, and selected projects."/>
   <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1"/>
 
-  <!-- Fonts: Inter (UI/text), optional fallback system font -->
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
 
   <style>
-    /* ------- Design tokens (AA+ contrast) ------- */
+    /* ------- Design tokens ------- */
     :root{
-      /* Light */
-      --bg:#ffffff;
-      --surface:#f7f7f9;
-      --ink:#111318;
-      --ink-muted:#5a6270;
-      --border:#d9dde5;
-      --accent:#0a66c2;
-      --accent-weak:#e6f0fb;
-      --max: 920px;
-
-      --radius:16px;
-      --shadow:0 1px 2px rgba(0,0,0,.05);
-      --lh:1.65;
-      --h1: clamp(1.9rem, 1.5rem + 1.5vw, 2.4rem);
+      --bg:#ffffff; --surface:#f7f7f9; --ink:#111318; --ink-muted:#5a6270;
+      --border:#d9dde5; --accent:#0a66c2; --accent-weak:#e6f0fb;
+      --max: 920px; --radius:16px; --shadow:0 1px 2px rgba(0,0,0,.05);
+      --lh:1.65; --h1: clamp(1.9rem, 1.5rem + 1.5vw, 2.4rem);
       --h2: clamp(1.15rem, 1rem + .6vw, 1.35rem);
-      --text: 16.5px;
-      --small: 14px;
+      --text: 16.5px; --small: 14px;
     }
     @media (prefers-color-scheme: dark){
       :root{
-        --bg:#0b0d12;
-        --surface:#11151c;
-        --ink:#e9edf1;
-        --ink-muted:#aab3bd;
-        --border:#1f2733;
-        --accent:#79c0ff;
-        --accent-weak:#142130;
+        --bg:#0b0d12; --surface:#11151c; --ink:#e9edf1; --ink-muted:#aab3bd;
+        --border:#1f2733; --accent:#79c0ff; --accent-weak:#142130;
         --shadow:0 1px 2px rgba(0,0,0,.35);
       }
     }
@@ -96,13 +80,10 @@
     .pub li{margin-bottom:10px}
     .tight li{margin-bottom:6px}
 
-    /* --- ONLY the portrait is protected --- */
+    /* Only protect the portrait */
     .no-save{ position:relative; display:inline-block; }
     .no-save img{
-      -webkit-user-drag:none;
-      user-select:none;
-      -webkit-touch-callout:none;
-      pointer-events:none; /* prevents image-specific context menu; events go to wrapper */
+      -webkit-user-drag:none; user-select:none; -webkit-touch-callout:none; pointer-events:none;
     }
 
     /* ------- Print ------- */
@@ -131,7 +112,7 @@
           <a href="#experience">Experience</a>
           <a href="#academic">Academic</a>
           <a href="#workshops">Certificates</a>
-          <a href="#skills">Skills</a>
+          <a href="#projects">Projects</a>
           <a href="#contact">Contact</a>
         </nav>
         <button id="themeBtn" class="btn toggle" aria-label="Toggle color theme" title="Toggle Light/Dark">🌗 Theme</button>
@@ -142,7 +123,6 @@
       <!-- HERO -->
       <section class="hero card" id="about" aria-labelledby="name">
         <div style="text-align:center">
-          <!-- guarded portrait -->
           <div class="no-save">
             <img src="/assets/MKhanalizadeh.jpeg"
                  alt="Portrait of Masoud Khanalizadeh Imani"
@@ -151,7 +131,7 @@
                  draggable="false" />
           </div>
           <h1 id="name">Masoud Khanalizadeh Imani</h1>
-          <p class="muted">PhD applicant — Computer Architecture &amp; Storage Systems</p>
+          <p class="muted">Computer Architecture &amp; Storage Systems Researcher</p>
         </div>
         <div>
           <p>I am a computer architecture researcher specializing in I/O and data storage systems. My recent work focuses on SSD/HDD caching strategies, reliability characterization of open-source caching modules, and cost-efficient performance optimization in large-scale SAN environments. Beyond theoretical design, I am passionate about building practical prototypes, conducting rigorous experimental evaluations, and developing tools that make advanced storage technologies more reliable and accessible. My broader goal is to contribute to the next generation of scalable, high-performance, and fault-tolerant storage infrastructures.</p>
@@ -185,25 +165,26 @@
         <h2>Education</h2>
         <ul>
           <li>
-            <strong>M.Sc. in Computer Engineering (Computer Architecture)</strong> — Sharif University of Technology, Tehran —
+            <strong>M.Sc. in Computer Engineering (Computer Architecture)</strong> — Sharif University of Technology (SUT), Tehran —
             <span class="muted">Sep 2020 – Mar 2023</span><br/>
-            GPA: 16.85/20. Thesis: <em>Reliability Characterization of Open-Source I/O Caching Modules in Data Storage Systems</em>
-            (Advisor: Prof. Hossein Asadi)
+            GPA: 16.85/20. Thesis: <em>Reliability Characterization of Open-Source I/O Caching Modules in Data Storage Systems</em><br/>
+            <strong>Advisor:</strong> Prof. Hossein Asadi &nbsp;|&nbsp;
+            <strong>Research Lab:</strong> <a href="http://dsn.ce.sharif.edu/members/" target="_blank" rel="noopener">Data Storage, Networks, &amp; Processing (DSN) Lab</a>
           </li>
           <li>
-            <strong>B.Sc. in Computer Engineering (Software)</strong> — IAU Robat Karim —
+            <strong>B.Sc. in Computer Engineering (Software Engineering)</strong> — IAU Robat Karim —
             <span class="muted">Oct 2012 – Jun 2017</span><br/>
             GPA: 15.79/20. Thesis: <em>Solving Sudoku Puzzle by Genetic Algorithm using C++</em>
           </li>
         </ul>
       </section>
-      
+
       <!-- PUBLICATIONS -->
       <section id="publications" class="card">
         <h2>Publications</h2>
         <ul class="pub">
           <li>
-            <strong>Re-architecting I/O Caches for Emerging Fast Storage Devices</strong> — <em>ASPLOS 2023</em>.<br/>
+            <strong>Re-architecting I/O Caches for Emerging Fast Storage Devices</strong> — <em><strong>ASPLOS 2023</strong></em>.<br/>
             M. Ajdari, P. P. Sani, A. Moradi, <u>M. Khanalizadeh Imani</u>, A. H. Bazkhanei, H. Asadi.
             <a href="https://doi.org/10.1145/3582016.3582041" target="_blank" rel="noopener">DOI</a>
           </li>
@@ -211,16 +192,6 @@
             <strong>A Near-Optimal SSD Cache Partitioning Framework to Maximize Performance-per-Cost in SAN Storage Systems</strong> — <em>under review</em>.<br/>
             P. P. Sani*, <u>M. Khanalizadeh Imani*</u>, M. Ajdari, H. Asadi. (*equal contribution)
           </li>
-        </ul>
-      </section>
-
-      <!-- PATENTS -->
-      <section id="patents" class="card">
-        <h2>Patents (Applications in Preparation)</h2>
-        <ul>
-          <li>Testing platform for disk power outages</li>
-          <li>Disk wipe and clone platform</li>
-          <li>Software module for automatic I/O cache size optimization</li>
         </ul>
       </section>
 
@@ -232,7 +203,7 @@
             <strong>Researcher &amp; Developer — Data Storage Systems</strong><br/>
             High-Performance Data Storage (HPDS), Tehran — <span class="muted">Feb 2021 – Aug 2024</span>
             <ul class="small">
-              <li>Worked on SSD/HDD I/O caching and reliability characterization.</li>
+              <li>Conducted performance and reliability characterization of SSD/HDD I/O caching mechanisms.</li>
               <li>Designed and evaluated storage modules and prototypes.</li>
             </ul>
           </div>
@@ -240,7 +211,7 @@
             <strong>Network Technician &amp; Help Desk</strong><br/>
             Aria Technical Services, Tehran — <span class="muted">Aug 2013 – Feb 2018</span>
             <ul class="small">
-              <li>Passive network setups; desktop/laptop repair and support.</li>
+              <li>Provided IT support including network setup, desktop maintenance, and basic CCTV system installation.</li>
             </ul>
           </div>
         </div>
@@ -261,35 +232,20 @@
             (Supervisor: Dr. Shaahin Hessabi)
           </li>
           <li>
-            <strong>Founder & Team Lead — Robotics Lab</strong><br/>
+            <strong>Founder &amp; Team Lead — Robotics Lab</strong><br/>
             IAU Robat Karim — <span class="muted">Oct 2015 – Jun 2017</span><br/>
             Established a robotics lab with university funding; led a student team developing maze-solving and path-finding robots for national competitions.
           </li>
         </ul>
       </section>
 
-      <!-- WORKSHOPS & CERTIFICATES -->
-      <section id="workshops" class="card">
-        <h2>Workshops &amp; Certificates</h2>
+      <!-- PATENTS -->
+      <section id="patents" class="card">
+        <h2>Patents (Applications in Preparation)</h2>
         <ul>
-          <li>
-            <strong>10th Winter Seminar Series (WSS10)</strong> — Sharif University of Technology —
-            <em>Apr 2025</em> ·
-            <a href="certificates/WSS10.png" target="_blank" rel="noopener">View Certificate</a>
-          </li>
-          <li>
-            <strong>5-Day Gen AI Intensive</strong> — Google/Kaggle —
-            <em>2025</em> ·
-            <a href="certificates/GenAI.png" target="_blank" rel="noopener">View Certificate</a>
-          </li>
-          <li>
-            <strong>MCSE 2012</strong> — Cando Institute, Tehran —
-            <em>Sep 2015 – Sep 2016</em>
-          </li>
-          <li>
-            <strong>Network+</strong> — Cando Institute, Tehran —
-            <em>Jul 2015</em>
-          </li>
+          <li>Testing platform for disk power outages</li>
+          <li>Disk wipe and clone platform</li>
+          <li>Software module for automatic I/O cache size optimization</li>
         </ul>
       </section>
 
@@ -299,42 +255,38 @@
         <ul>
           <li>
             <strong><a href="https://github.com/MasoudKhanalizadeh/CIMulator" target="_blank" rel="noopener">CIMulator — Computation-In-Memory Simulator</a></strong><br/>
-            Interactive Jupyter-based simulator for memristor devices and crossbar arrays. 
-            Features real-time plotting, adjustable parameters, and GUI (ipywidgets) for education, research, and prototyping in neuromorphic/CIM.
+            Interactive Jupyter-based simulator for memristor devices and crossbar arrays with real-time plotting and an intuitive GUI.
           </li>
-          <li>SSD-on-HDD cache evaluation and partitioning prototypes.</li>
-          <li>Reliability analysis of open-source I/O cache modules.</li>
+          <li>
+            <strong><a href="https://github.com/MasoudKhanalizadeh/PASS" target="_blank" rel="noopener">PASS — I/O Cache Test &amp; Analysis Framework</a></strong><br/>
+            Framework for testing, analyzing, and benchmarking I/O cache modules across different configurations (from ASPLOS’23 experiments).
+          </li>
+          <li>
+            <strong>Reliability Analysis of Open-Source I/O Cache Modules</strong><br/>
+            Research project at HPDS Lab (non-open-source): empirical evaluation of cache modules under diverse workloads to characterize stability and fault-tolerance.
+          </li>
         </ul>
+        <p class="small">For more, see my <a href="https://github.com/MasoudKhanalizadeh" target="_blank" rel="noopener">GitHub profile</a>.</p>
       </section>
 
-      <!-- SKILLS -->
-      <section id="skills" class="card">
-        <h2>Skills</h2>
-        <div class="grid cols-2">
-          <div>
-            <strong>Programming</strong>
-            <ul class="small tight">
-              <li>C/C++, Python, Bash</li>
-            </ul>
-            <strong>Platforms &amp; Tools</strong>
-            <ul class="small tight">
-              <li>Linux, VMware Workstation, LaTeX, Git</li>
-              <li>Excel, PowerPoint, Word, Visio, Draw.io, Proteus, Xilinx ISE</li>
-            </ul>
-          </div>
-          <div>
-            <strong>Coursework &amp; Topics</strong>
-            <ul class="small tight">
-              <li>Fault-Tolerant Systems, Hardware Security &amp; Trust, SoC Design</li>
-              <li>Advanced Computer Networks, On-Chip Communications</li>
-            </ul>
-            <strong>Soft Skills</strong>
-            <ul class="small tight">
-              <li>Hard-working, Team-oriented, Patient/Flexible, Independent, Creative</li>
-            </ul>
-          </div>
-        </div>
-      </section>      
+      <!-- CERTIFICATES -->
+      <section id="workshops" class="card">
+        <h2>Workshops &amp; Certificates</h2>
+        <ul>
+          <li>
+            <strong>10th Winter Seminar Series (WSS10)</strong> — Sharif University of Technology —
+            <em>Apr 2025</em> ·
+            <a href="/certificates/WSS10.png" target="_blank" rel="noopener">View Certificate</a>
+          </li>
+          <li>
+            <strong>5-Day Gen AI Intensive</strong> — Google/Kaggle —
+            <em>2025</em> ·
+            <a href="/certificates/GenAI.png" target="_blank" rel="noopener">View Certificate</a>
+          </li>
+          <li><strong>MCSE 2012</strong> — Cando Institute, Tehran — <em>Sep 2015 – Sep 2016</em></li>
+          <li><strong>Network+</strong> — Cando Institute, Tehran — <em>Jul 2015</em></li>
+        </ul>
+      </section>
 
       <!-- CONTACT -->
       <section id="contact" class="card">
@@ -361,29 +313,18 @@
     const KEY='pref-theme';
     const root=document.documentElement;
     const btn=document.getElementById('themeBtn');
-
-    function applyTheme(val){
-      if(val==='light' || val==='dark'){ root.setAttribute('data-theme', val); }
-      else{ root.setAttribute('data-theme','auto'); }
-    }
+    function applyTheme(val){ root.setAttribute('data-theme', (val==='light'||val==='dark')?val:'auto'); }
     function nextTheme(cur){ return cur==='auto' ? 'dark' : (cur==='dark' ? 'light' : 'auto'); }
-
-    const saved=localStorage.getItem(KEY);
-    applyTheme(saved || 'auto');
-
+    const saved=localStorage.getItem(KEY); applyTheme(saved || 'auto');
     btn.addEventListener('click',()=>{
       const cur=root.getAttribute('data-theme') || 'auto';
-      const nxt=nextTheme(cur);
-      applyTheme(nxt);
-      localStorage.setItem(KEY, nxt);
+      const nxt=nextTheme(cur); applyTheme(nxt); localStorage.setItem(KEY, nxt);
       btn.textContent = (nxt==='dark' ? '🌙 Theme' : (nxt==='light' ? '☀️ Theme' : '🌗 Theme'));
     });
-
-    // Set initial icon text
     const cur=root.getAttribute('data-theme') || 'auto';
     btn.textContent = (cur==='dark' ? '🌙 Theme' : (cur==='light' ? '☀️ Theme' : '🌗 Theme'));
 
-    // ---- Protect ONLY the portrait area (rest of page is normal) ----
+    // Protect ONLY the portrait area
     const portraitGuard = document.querySelector('.no-save');
     if (portraitGuard) {
       portraitGuard.addEventListener('contextmenu', e => e.preventDefault());
@@ -391,18 +332,19 @@
     }
   </script>
 
-  <!-- Structured data for rich snippets -->
+  <!-- Structured data -->
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
     "@type":"Person",
     "name":"Masoud Khanalizadeh Imani",
-    "jobTitle":"PhD Applicant",
+    "jobTitle":"Researcher (Computer Architecture & Storage Systems)",
     "email":"mailto:masoud.khanalizadehimani@gmail.com",
     "affiliation":{"@type":"Organization","name":"HPDS"},
     "sameAs":[
       "https://www.linkedin.com/in/masoud-khanalizadeh-imani-b17ab41bb/",
-      "https://www.researchgate.net/profile/Masoud-Khanalizadeh-Imani"
+      "https://www.researchgate.net/profile/Masoud-Khanalizadeh-Imani",
+      "https://github.com/MasoudKhanalizadeh"
     ],
     "url": ""
   }
