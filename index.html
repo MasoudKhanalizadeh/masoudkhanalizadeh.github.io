@@ -54,7 +54,7 @@
 
     .contact{display:flex; gap:14px; flex-wrap:wrap; align-items:center; margin-top:10px}
     .contact .badge{display:inline-flex; align-items:center; gap:8px; padding:8px 12px; border-radius:999px; background:var(--chip); color:var(--text); border:1px solid var(--rule); font-size:14px}
-    .icons{display:flex; gap:10px; align-items:center}
+    .icons{display:flex; gap:10px; align-items:center; flex-wrap:wrap;}
     .icon-btn{width:38px; height:38px; display:inline-grid; place-items:center; border-radius:999px; border:1px solid var(--rule); background:var(--bg-elev)}
     .icon-btn:hover{background:var(--chip)}
     .icon{width:18px; height:18px; fill:currentColor}
@@ -89,6 +89,20 @@
     .date-block{display:block; margin-top:2px; font-size:90%; color:var(--muted)}
 
     footer{margin-top:30px; color:var(--muted); font-size:13px; text-align:center}
+  
+    /* CV pill styling */
+    .contact .badge.cv{ background: var(--accent); color: #fff; border-color: transparent; font-weight:600; height:38px; padding:0 12px; }
+    .contact .badge.cv:hover{ filter: brightness(0.95); }
+  
+    /* CV pill styling */
+    .contact .badge.cv{ background: var(--accent); color: #fff; border-color: transparent; font-weight:600; height:38px; padding:0 12px; display:inline-flex; align-items:center; gap:8px; }
+    .icons .badge.cv{ margin-left:8px; }
+    .contact .badge.cv .icon{ width:16px; height:16px; }
+  
+    /* --- Safety: hide any accidental empty anchors in contact row --- */
+    .contact a:empty{display:none !important}
+    /* Only keep the intended CV button; hide any stray CV link without the .badge class */
+    .contact a[href*="CV.pdf"]:not(.badge){display:none !important}
   </style>
   <script>
     (function(){
@@ -131,12 +145,12 @@
         <div class="contact">
           <span class="badge"><svg class="icon"><use href="#i-mail"/></svg> <a href="mailto:masoud.khanalizadehimani@gmail.com">masoud.khanalizadehimani@gmail.com</a></span>
           <span class="badge"><svg class="icon"><use href="#i-phone"/></svg> <a href="tel:+989196469044">+98 919 646 9044</a></span>
-          <a class=\"icon-btn\" href=\"https://masoudkhanalizadeh.github.io/assets/CV.pdf\" target=\"_blank\" aria-label=\"Download CV\"><svg class=\"icon\" viewBox=\"0 0 24 24\"><path d=\"M4 2h16v20H4z\" fill=\"none\"/><text x=\"12\" y=\"16\" text-anchor=\"middle\" font-family=\"Inter, system-ui, sans-serif\" font-size=\"10\" font-weight=\"700\" fill=\"currentColor\">CV</text></svg></a>
           <span class="icons">
-            <a class="icon-btn" href="https://www.linkedin.com/in/masoud-khanalizadeh-imani-b17ab41bb/" target="_blank" aria-label="LinkedIn"><svg class="icon"><use href="#i-linkedin"/></svg></a>
-            <a class="icon-btn" href="https://www.researchgate.net/profile/Masoud-Khanalizadeh-Imani" target="_blank" aria-label="ResearchGate"><svg class="icon"><use href="#i-researchgate"/></svg></a>
-            <a class="icon-btn" href="https://github.com/MasoudKhanalizadeh" target="_blank" aria-label="GitHub"><svg class="icon"><use href="#i-github"/></svg></a>
-            <a class="icon-btn" href="https://masoudkhanalizadeh.github.io" target="_blank" aria-label="Website"><svg class="icon"><use href="#i-globe"/></svg></a>
+            <a class="icon-btn" href="https://www.linkedin.com/in/masoud-khanalizadeh-imani-b17ab41bb/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg class="icon"><use href="#i-linkedin"/></svg></a>
+            <a class="icon-btn" href="https://www.researchgate.net/profile/Masoud-Khanalizadeh-Imani" target="_blank" rel="noopener" aria-label="ResearchGate"><svg class="icon"><use href="#i-researchgate"/></svg></a>
+            <a class="icon-btn" href="https://github.com/MasoudKhanalizadeh" target="_blank" rel="noopener" aria-label="GitHub"><svg class="icon"><use href="#i-github"/></svg></a>
+            <a class="icon-btn" href="https://masoudkhanalizadeh.github.io" target="_blank" rel="noopener" aria-label="Website"><svg class="icon"><use href="#i-globe"/></svg></a>
+            <a class="badge cv" href="https://masoudkhanalizadeh.github.io/assets/CV.pdf" target="_blank" rel="noopener" download title="Download CV (PDF)"><svg class="icon"><use href="#i-cv"/></svg><span>CV</span></a>
           </span>
         </div>
       </div>
